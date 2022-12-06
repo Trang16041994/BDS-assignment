@@ -47,16 +47,9 @@ public class ScrollHandle : MonoBehaviour
         if (!onspawn)
         {
             onspawn = true;
-            // Resource.load de load prefab
-            // instatiate(parent chinh la content)
-            // so luong la 20
-            // vi tri nay count dang = 0 trong lan spawn dau tien
+            
             for (int i = 1; i <= 20; i++)
             {
-                // so thu tu 1 -> 20
-                // so thu tu 21 ->40
-                // (count)*20 + i
-                //listJsonImage
                 int jsonObjectIndex = countSpawn * 20 + i;          
                 GameObject abc = Instantiate(tempObject, tfParent) as GameObject;
                 ElementManager element = abc.GetComponent<ElementManager>();
@@ -67,14 +60,6 @@ public class ScrollHandle : MonoBehaviour
                 element.setImage(image);
                 if (jsonObjectIndex >= listJsonImage.listImages.Count)
                     break; // No more json image left to load into UI
-               
-                Debug.Log(countSpawn * 20 + i);
-                // lay component cua anc
-                // gan id cho abc
-                // count = 1
-                // count =2
-                // = 20*(count - 1) + i
-                    
             }
             countSpawn += 1;
         }

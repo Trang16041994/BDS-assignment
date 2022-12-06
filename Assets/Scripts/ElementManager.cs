@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class ElementManager : MonoBehaviour
 {
     // Start is called before the first frame update
-    public Image m_image;
-    public Text m_text;
+    [SerializeField] Image m_image;
+    [SerializeField] Text m_text;
     int id;
 
     public void setText(string text)
@@ -24,21 +24,12 @@ public class ElementManager : MonoBehaviour
     public void setId(int newid)
     {
         id = newid;
-        fillData(newid);
+        fillData();
     }
 
-
-    void Start()
+    public void fillData()
     {
-
-    }
-
-    public void fillData(int idToGetData)
-    {
-        // quy tac: neu id chan thif anh ben phai, neu id le thi anh ben trai
         GetComponent<HorizontalLayoutGroup>().reverseArrangement = (id % 2 == 0);
-        //m_image.transform.SetSiblingIndex(idToGetData % 2);
-        //
-        //DataManager.GetInstace().GetDataFromJsonPlaceHolder(idToGetData);
+        //other way: m_image.transform.SetSiblingIndex(idToGetData % 2);
     }
 }
